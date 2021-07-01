@@ -2,7 +2,6 @@
   <v-container fluid :style="`color: ${fontColor}`">
     <v-row>
       <v-col>
-        <code>paused: {{ paused }}</code>
         <p
           :style="`font-size: ${fontSize}px; font-weight: ${
             fontBold ? 700 : 400
