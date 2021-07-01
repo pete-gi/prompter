@@ -1,18 +1,35 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+  <v-container>
+    <v-row>
+      <v-col>
+        <v-textarea
+          label="Treść"
+          hide-details
+          auto-grow
+          rows="20"
+          v-model="textareaValue"
+        ></v-textarea>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-
 export default {
   name: "Home",
-  components: {
-    HelloWorld,
+
+  computed: {
+    textareaValue: {
+      get() {
+        return this.$store.state.textareaValue;
+      },
+      set(value) {
+        this.$store.commit("setValue", {
+          name: "textareaValue",
+          value,
+        });
+      },
+    },
   },
 };
 </script>
